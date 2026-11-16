@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anu Aga — Crucibles of Leadership | Human-led HTML Film</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--gold:#e7bd78;--white:#f6f1e8;--muted:#c2c0bd}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#05080b;color:var(--white);font-family:'DM Sans',sans-serif;overflow:hidden}
+#film{position:relative;width:100vw;height:100vh;min-height:520px;overflow:hidden;background:#101820}
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 1.2s}
+.scene.active{opacity:1;visibility:visible}
+.bg{position:absolute;inset:-5%;background-size:cover;background-position:center;transform:scale(1.08);animation:slowMove 18s ease-in-out infinite alternate}
+.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#071018eF 0%,#071018a8 44%,#0710181c 100%),linear-gradient(0deg,#05080bd9,transparent 40%,#05080b55)}
+.bg.office{background:radial-gradient(ellipse at 72% 35%,#59717c 0,#1c303b 28%,transparent 60%),linear-gradient(125deg,#101a22,#32444a 48%,#0a1118)}
+.bg.mumbai{background:linear-gradient(120deg,#101c2b99,#111b25aa),repeating-linear-gradient(90deg,#a5b1b333 0 2px,transparent 2px 75px),linear-gradient(#bd8d64,#28394a 65%,#10171f)}
+.bg.factory{background:radial-gradient(ellipse at 75% 45%,#d28d4d55,transparent 28%),repeating-linear-gradient(90deg,transparent 0 100px,#9eafb022 101px 104px),linear-gradient(115deg,#101a20,#31444a 52%,#0b1116)}
+.bg.board{background:radial-gradient(ellipse at 65% 35%,#a88d6c55,transparent 35%),linear-gradient(125deg,#101821,#26333c 55%,#0a1118)}
+.bg.memory{background:radial-gradient(ellipse at 70% 35%,#b28d7950,transparent 35%),linear-gradient(120deg,#17191d,#423b3b 52%,#111317)}
+.bg.dawn{background:radial-gradient(ellipse at 78% 38%,#e7a45b88,transparent 24%),linear-gradient(125deg,#14222b,#44515a 55%,#101820)}
+@keyframes slowMove{from{transform:scale(1.04) translateX(-1%)}to{transform:scale(1.14) translateX(1.5%)}}
+.grain{position:absolute;inset:0;z-index:8;pointer-events:none;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
+.header{position:absolute;z-index:12;top:0;left:0;right:0;padding:24px 5vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff20;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#e8d3b1}
+.progress{position:absolute;z-index:14;left:0;top:0;height:3px;background:var(--gold);width:0;transition:width .4s}
+.copy{position:absolute;z-index:10;left:7vw;top:50%;transform:translateY(-48%);width:min(49vw,700px);animation:copyIn 1.1s both}
+@keyframes copyIn{from{opacity:0;transform:translate(-25px,-42%)}to{opacity:1;transform:translate(0,-48%)}}
+.kicker{font-size:11px;letter-spacing:.27em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:22px}
+h1{font:600 clamp(42px,5.4vw,82px)/1.02 'Playfair Display',serif;margin:0 0 24px;letter-spacing:-.035em;text-shadow:0 8px 35px #0008}
+h1 span{color:var(--gold);font-style:italic}
+p{font-size:clamp(15px,1.35vw,20px);line-height:1.75;color:#e1dfda;max-width:660px;margin:0}
+.caption{position:absolute;z-index:13;left:7vw;bottom:10vh;color:#fff;font-size:13px;letter-spacing:.07em;border-left:2px solid var(--gold);padding:8px 15px;background:#07101880;max-width:70vw}
+.presenter{position:absolute;z-index:6;right:8vw;bottom:-2vh;height:min(78vh,760px);width:min(34vw,430px);filter:drop-shadow(0 20px 35px #0009);transform-origin:50% 100%;animation:walkIn 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes walkIn{0%{transform:translateX(180px) scale(.98);opacity:0}65%{transform:translateX(-12px) scale(1.01);opacity:1}100%{transform:translateX(0) scale(1)}}
+.presenter.walking{animation:walk 1.1s ease-in-out infinite alternate}
+@keyframes walk{from{transform:translateX(-8px) translateY(0)}to{transform:translateX(8px) translateY(-4px)}}
+.person-svg{width:100%;height:100%;overflow:visible}
+.arm{transform-box:fill-box;transform-origin:top center;animation:gesture 3.5s ease-in-out infinite}
+.arm.left{animation-delay:-1.3s}
+@keyframes gesture{0%,100%{transform:rotate(0)}35%{transform:rotate(-13deg)}60%{transform:rotate(8deg)}}
+.mouth{transform-box:fill-box;transform-origin:center;animation:talk .22s steps(2,end) infinite;animation-play-state:paused}
+.talking .mouth{animation-play-state:running}
+@keyframes talk{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1.5)}}
+.eye{animation:blink 5s infinite}
+@keyframes blink{0%,47%,51%,100%{transform:scaleY(1)}49%{transform:scaleY(.08)}}
+.ambient{position:absolute;z-index:4;right:4vw;top:17vh;width:38vw;height:55vh;border:1px solid #e7bd7830;border-radius:50%;transform:rotate(-18deg);box-shadow:0 0 100px #d9a96613,inset 0 0 80px #d9a9660a}
+.ambient:before,.ambient:after{content:"";position:absolute;border:1px solid #fff2;border-radius:50%;inset:8% 17%;transform:rotate(45deg)}
+.ambient:after{inset:18% -8%;transform:rotate(-45deg)}
+.visual-label{position:absolute;z-index:11;right:5vw;top:15vh;color:#f1d4a4;font-size:9px;letter-spacing:.25em;writing-mode:vertical-rl}
+.controls{position:absolute;z-index:30;left:0;right:0;bottom:0;padding:15px 5vw 18px;background:linear-gradient(0deg,#030608ed,#03060800);display:flex;align-items:center;gap:13px}
+button,select{border:1px solid #ffffff35;background:#111b22;color:#fff;padding:10px 14px;border-radius:4px;font:600 11px 'DM Sans';letter-spacing:.08em;cursor:pointer}
+button.primary{background:var(--gold);color:#111;border-color:var(--gold)}
+button:hover,select:hover{border-color:var(--gold)}
+.time{font-variant-numeric:tabular-nums;color:#d5c5a8;font-size:11px;min-width:90px}
+.track{height:3px;background:#ffffff30;flex:1;cursor:pointer;position:relative}.track i{display:block;height:100%;width:0;background:var(--gold)}
+.notice{position:absolute;z-index:20;right:5vw;bottom:85px;color:#b8b4ac;font-size:10px;letter-spacing:.05em}
+@media(max-width:760px){.copy{left:6vw;top:39%;width:82vw}.copy p{max-width:75vw}.presenter{right:-2vw;height:54vh;width:49vw;opacity:.75}.caption{bottom:13vh}.header{padding:18px 5vw}.visual-label{display:none}.ambient{right:-5vw;width:65vw}.controls{gap:7px;padding:10px 3vw}.controls button{padding:8px}.notice{display:none}}
+</style></head>
+<body>
+<div id="film">
+ <div class="progress" id="progress"></div>
+ <div class="header"><span>ANU AGA · THE CRUCIBLE</span><span>LEADERSHIP / A HUMAN STORY</span></div>
+ <div id="scenes"></div>
+ <div class="grain"></div>
+ <div class="notice">For an Indian English voice, select an en-IN option if your browser provides one. Narration is slowed for clarity.</div>
+ <div class="controls">
+  <button class="primary" id="play">▶ PLAY FILM</button><button id="prev">↶</button><button id="next">↷</button>
+  <span class="time" id="time">00:00 / 10:00</span><div class="track" id="track"><i id="trackFill"></i></div>
+  <select id="voice" aria-label="Narrator voice"></select><button id="mute">VOICE ON</button><button id="full">FULL SCREEN</button>
+ </div>
+</div>
+<script>
+const scenes=[
+{bg:"office",k:"A LEADERSHIP DOCUMENTARY",title:"The strength to <span>begin again.</span>",text:"What makes a leader? Not a title. Not a perfect career. Sometimes, leadership begins when life changes without warning—and responsibility arrives before certainty.",cap:"ANU AGA · A STORY OF LOSS, RESPONSIBILITY AND RENEWAL",voice:"A leadership story is not always a story of certainty. Sometimes it begins when life changes without warning, and responsibility arrives before answers. This is the story of Anu Aga, and the crucibles that shaped her approach to leadership."},
+{bg:"mumbai",k:"CHAPTER 01 · ROOTS",title:"A life shaped by <span>learning.</span>",text:"Born in Bombay in 1942, Anu Aga built her early foundation through education. She studied economics at St Xavier’s College and later pursued medical and psychiatric social work at the Tata Institute of Social Sciences.",cap:"1942 · BOMBAY  /  EDUCATION BEFORE AUTHORITY",voice:"Anu Aga was born in Bombay in 1942. Her education crossed disciplines. She studied economics at St Xavier's College, and later pursued medical and psychiatric social work at the Tata Institute of Social Sciences. A Fulbright scholarship further broadened her exposure. These experiences matter because they placed people, institutions and society at the centre of her perspective."},
+{bg:"office",k:"CHAPTER 02 · THE PROFESSIONAL",title:"From people to <span>leadership.</span>",text:"She joined Thermax in 1985, working in human resources. By 1991, she was heading the function. Her path into leadership was grounded in understanding people and the organisation.",cap:"1985 · JOINS THERMAX  /  1991 · HEAD OF HR",voice:"In 1985, Anu Aga joined Thermax in human resources. By 1991, she was heading the function. Her career was not a sudden leap into the corner office. It developed through organisational experience and an understanding of people. That background would become important when she later faced a much larger test."},
+{bg:"board",k:"CHAPTER 03 · THE CRUCIBLE",title:"When responsibility <span>arrives.</span>",text:"In February 1996, after the sudden death of her husband, Rohinton Aga, she became chairperson of Thermax. The transition was abrupt. The responsibility was enormous.",cap:"FEBRUARY 1996 · A SUDDEN CHANGE IN LEADERSHIP",voice:"In February 1996, Anu Aga's husband, Rohinton Aga, died suddenly of a heart attack. She became chairperson of Thermax. This was a profound personal and professional turning point. The crucible was not simply the event itself. It was the responsibility that followed, and the decisions she had to make while navigating uncertainty."},
+{bg:"memory",k:"CHAPTER 04 · PERSONAL ADVERSITY",title:"The human cost of <span>loss.</span>",text:"In 1997, her son Kurush died in a road accident. This personal tragedy must be understood with dignity—not reduced to a management lesson or treated as a source of business advantage.",cap:"1997 · A FAMILY TRAGEDY · REMEMBERED WITH DIGNITY",voice:"In 1997, Anu Aga faced another devastating personal loss when her son Kurush died in a road accident. No leadership framework can make such a loss smaller, and it should never be presented as a business advantage. It reminds us that leaders are human beings, carrying private grief while continuing to face public responsibilities."},
+{bg:"factory",k:"CHAPTER 05 · BUSINESS PRESSURE",title:"A company at a <span>crossroads.</span>",text:"Thermax was facing serious business difficulties. The challenge required more than optimism: it demanded an honest diagnosis of the organisation, its portfolio and its direction.",cap:"THERMAX · DIAGNOSIS BEFORE PRESCRIPTION",voice:"At the same time, Thermax was facing serious business difficulties. The company needed more than reassurance. It needed a clear diagnosis of what was not working. Anu Aga sought external strategic support, including work with Boston Consulting Group. The response involved examining the organisation, its businesses and its priorities."},
+{bg:"board",k:"CHAPTER 06 · THE RESET",title:"Difficult choices. <span>Clear direction.</span>",text:"The response included changes to the board, exiting non-core businesses, restructuring and a stronger focus on customers. These were organisational efforts—not the work of one person alone.",cap:"BOARD · PORTFOLIO · STRUCTURE · CUSTOMER FOCUS",voice:"The turnaround involved difficult organisational choices. These included reconstituting the board, exiting non-core businesses, rightsizing and restructuring, and strengthening customer focus. It is important not to turn this into a one-person myth. Leadership set direction, but organisational change required teams, managers and employees to act."},
+{bg:"factory",k:"CHAPTER 07 · LEADING PEOPLE",title:"Change needs <span>people.</span>",text:"Restructuring is not just a chart or a cost target. It changes roles, expectations and trust. Leaders must communicate clearly, make difficult decisions and bring people along.",cap:"ALIGNMENT · COMMUNICATION · ACCOUNTABILITY",voice:"A restructuring plan only works when people understand what is changing and why. Change affects jobs, identity and trust. A leader must communicate clearly, listen to concerns, make difficult decisions and create alignment. This is where a people-centred background can inform leadership—but it does not remove the difficulty of the choices."},
+{bg:"office",k:"CHAPTER 08 · THE FRAMEWORK",title:"What is a <span>crucible?</span>",text:"Warren Bennis and Robert Thomas described crucibles as transformative experiences that test leaders and reshape how they see themselves, others and the world.",cap:"BENNIS & THOMAS · CRUCIBLES OF LEADERSHIP · 2002",voice:"In their 2002 Harvard Business Review article, Warren Bennis and Robert Thomas described crucibles of leadership. A crucible is a testing experience that forces a person to confront reality, reassess assumptions and emerge with a changed understanding. Adversity alone does not create leadership. The response to adversity matters."},
+{bg:"board",k:"CHAPTER 09 · FOUR CAPABILITIES",title:"The capabilities that <span>matter.</span>",text:"The framework highlights engaging others through shared meaning, a distinctive voice, integrity and adaptive capacity. Anu Aga’s journey offers a lens through which to examine these ideas.",cap:"SHARED MEANING · VOICE · INTEGRITY · ADAPTIVE CAPACITY",voice:"Bennis and Thomas identify four essential capabilities: engaging others in shared meaning, having a distinctive and compelling voice, demonstrating integrity, and possessing adaptive capacity. Anu Aga's story gives us a way to examine these capabilities in practice: setting direction, facing difficult realities, and responding to change."},
+{bg:"dawn",k:"CHAPTER 10 · BEYOND THE BOARDROOM",title:"Leadership beyond <span>business.</span>",text:"After stepping down as chairperson in October 2004, Anu Aga continued contributing to social causes and public life. She received the Padma Shri in 2010 and was nominated to the Rajya Sabha in 2012.",cap:"2004 · STEPS DOWN  /  2010 · PADMA SHRI  /  2012 · RAJYA SABHA",voice:"Anu Aga stepped down as chairperson in October 2004. Her public contribution continued through social causes and education. She received the Padma Shri in 2010 and was nominated to the Rajya Sabha in 2012. Her journey shows that leadership can extend beyond a corporate position into wider public responsibility."},
+{bg:"dawn",k:"THE FINAL CHAPTER · LESSONS",title:"The crucible is the test. <span>The response is the legacy.</span>",text:"Prepare before the crisis. Diagnose before acting. Make difficult choices with integrity. Communicate with people. Adapt without losing your values. That is the work of leadership.",cap:"ANU AGA · THE CRUCIBLES OF LEADERSHIP",voice:"What can we learn from this journey? First, prepare by building capabilities before a crisis arrives. Second, diagnose honestly before prescribing solutions. Third, make difficult decisions with integrity. Fourth, communicate in a way that creates shared meaning. And finally, adapt without abandoning your values. A crucible does not automatically make someone a leader. What matters is how a person responds. The test is the crucible. The response becomes the legacy."}
+];
+const $=id=>document.getElementById(id);
+const stage=$("scenes");
+function presenter(){return `<div class="ambient"></div><div class="presenter"><svg class="person-svg" viewBox="0 0 360 700" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="suit" x1="0" x2="1"><stop stop-color="#172a34"/><stop offset=".55" stop-color="#344b54"/><stop offset="1" stop-color="#101e27"/></linearGradient><linearGradient id="skin" x1="0" x2="1"><stop stop-color="#b97855"/><stop offset=".5" stop-color="#d89b75"/><stop offset="1" stop-color="#a9674c"/></linearGradient></defs>
+<!-- legs --> <path d="M125 510 L115 665 Q135 681 157 668 L178 520Z" fill="#17232c"/><path d="M183 515 L202 666 Q222 681 244 665 L226 505Z" fill="#202c34"/><path d="M112 660 Q130 650 158 666 L164 685 L105 685Z" fill="#080d11"/><path d="M199 663 Q225 650 244 664 L260 685 L202 685Z" fill="#080d11"/>
+<!-- torso --> <path d="M116 263 Q180 235 245 265 L278 510 Q208 544 92 511Z" fill="url(#suit)" stroke="#657780" stroke-width="2"/><path d="M151 260 L180 326 L210 260 L193 405 L164 405Z" fill="#e6d9c8"/><path d="M180 326 L193 405 L180 434 L164 405Z" fill="#b68a62"/>
+<!-- neck --> <path d="M158 215 L157 276 Q180 303 204 276 L200 215Z" fill="url(#skin)"/>
+<!-- back hair --> <path d="M117 112 Q104 22 183 25 Q272 26 254 145 L253 240 Q234 280 215 256 L121 252Z" fill="#17181a"/>
+<!-- face --> <ellipse cx="183" cy="143" rx="67" ry="84" fill="url(#skin)"/>
+<!-- hair framing --> <path d="M118 145 Q105 56 174 43 Q248 39 254 112 Q223 89 207 77 Q178 111 122 113Z" fill="#181719"/><path d="M118 117 Q111 183 129 222 Q104 201 105 150Z" fill="#19191b"/><path d="M247 112 Q265 181 235 226 Q258 204 263 156Z" fill="#19191b"/>
+<!-- eyes --> <g class="eye" fill="#28201e"><ellipse cx="157" cy="147" rx="6" ry="3.5"/><ellipse cx="207" cy="147" rx="6" ry="3.5"/></g><path d="M145 134 Q157 127 168 134 M195 134 Q207 127 219 134" stroke="#4a3028" stroke-width="4" fill="none" stroke-linecap="round"/>
+<!-- nose + mouth --> <path d="M181 151 L175 177 Q182 182 190 177" stroke="#925e49" stroke-width="2" fill="none"/><ellipse class="mouth" cx="182" cy="194" rx="10" ry="3.5" fill="#713c3b"/>
+<!-- earrings --> <circle cx="119" cy="174" r="5" fill="#d9b36f"/><circle cx="247" cy="174" r="5" fill="#d9b36f"/>
+<!-- arms --> <g class="arm left"><path d="M118 281 Q84 300 73 385 L91 408 Q125 358 148 314Z" fill="url(#suit)"/><path d="M73 385 Q57 417 70 441 Q82 450 94 431 L91 408Z" fill="url(#skin)"/></g><g class="arm"><path d="M244 281 Q281 300 292 385 L274 408 Q241 358 216 314Z" fill="url(#suit)"/><path d="M292 385 Q309 416 295 441 Q283 450 272 431 L274 408Z" fill="url(#skin)"/></g>
+</svg></div>`}
+scenes.forEach((s,i)=>{const el=document.createElement("section");el.className="scene"+(i===0?" active":"");el.innerHTML=`<div class="bg ${s.bg}"></div>${presenter()}<div class="visual-label">ANU AGA · LEADERSHIP THROUGH CRUCIBLES</div><div class="copy"><div class="kicker">${s.k}</div><h1>${s.title}</h1><p>${s.text}</p></div><div class="caption">${s.cap}</div>`;stage.appendChild(el)});
+let index=0,playing=false,voiceOn=true,timer=null,startTime=0,elapsed=0;
+const total=600;
+let voices=[];
+function loadVoices(){voices=speechSynthesis.getVoices();$("voice").innerHTML="";voices.filter(v=>/^en/i.test(v.lang)).sort((a,b)=>((b.lang.toLowerCase().startsWith("en-in")?4:0)+( /india|indian|rishi|veena|heera|neerja/i.test(b.name)?3:0))-((a.lang.toLowerCase().startsWith("en-in")?4:0)+(/india|indian|rishi|veena|heera|neerja/i.test(a.name)?3:0))).forEach(v=>{const o=document.createElement("option");o.value=v.name;o.textContent=v.name+" · "+v.lang;$("voice").appendChild(o)});let preferred=voices.find(v=>/^en-in/i.test(v.lang))||voices.find(v=>/India|Indian|Rishi|Veena|Heera|Neerja/i.test(v.name+" "+v.lang))||voices.find(v=>/female|samantha|zira|aria|jenny|sonia|libby/i.test(v.name));if(preferred)$("voice").value=preferred.name}
+if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function setScene(i){index=Math.max(0,Math.min(scenes.length-1,i));document.querySelectorAll(".scene").forEach((e,j)=>e.classList.toggle("active",j===index));document.querySelectorAll(".presenter").forEach(e=>e.classList.add("walking"));$("progress").style.width=((index+1)/scenes.length*100)+"%";$("trackFill").style.width=((index+1)/scenes.length*100)+"%";$("time").textContent=String(Math.floor(index*total/scenes.length/60)).padStart(2,"0")+":"+String(Math.floor(index*total/scenes.length%60)).padStart(2,"0")+" / 10:00";if(playing) speakScene()}
+function speakScene(){speechSynthesis.cancel();if(!voiceOn)return;const u=new SpeechSynthesisUtterance(scenes[index].voice);u.rate=.78;u.pitch=1.0;const v=voices.find(v=>v.name===$("voice").value);if(v)u.voice=v;const active=document.querySelectorAll(".scene")[index].querySelector(".presenter");u.onstart=()=>active.classList.add("talking");u.onend=()=>{active.classList.remove("talking");if(playing){if(index<scenes.length-1){timer=setTimeout(()=>setScene(index+1),1400)}else stop()}};speechSynthesis.speak(u)}
+function play(){if(playing)return;playing=true;$("play").textContent="Ⅱ PAUSE";if(voiceOn)speakScene();else timer=setTimeout(()=>setScene(index+1),50000)}
+function stop(){playing=false;clearTimeout(timer);speechSynthesis.cancel();document.querySelectorAll(".presenter").forEach(e=>e.classList.remove("talking","walking"));$("play").textContent="▶ PLAY FILM"}
+$("play").onclick=()=>playing?stop():play();$("next").onclick=()=>{stop();setScene(index+1)};$("prev").onclick=()=>{stop();setScene(index-1)};
+$("mute").onclick=()=>{voiceOn=!voiceOn;$("mute").textContent=voiceOn?"VOICE ON":"VOICE OFF";if(!voiceOn)speechSynthesis.cancel();else if(playing)speakScene()};
+$("voice").onchange=()=>{if(playing)speakScene()};
+$("full").onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+$("track").onclick=e=>{const r=e.currentTarget.getBoundingClientRect();const i=Math.min(scenes.length-1,Math.floor((e.clientX-r.left)/r.width*scenes.length));stop();setScene(i)};
+window.addEventListener("keydown",e=>{if(e.code==="Space"){e.preventDefault();playing?stop():play()}if(e.code==="ArrowRight")$("next").click();if(e.code==="ArrowLeft")$("prev").click()});
+</script></body></html>
